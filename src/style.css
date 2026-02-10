@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  }
+  .btn-primary {
+    @apply bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  .btn-secondary {
+    @apply bg-white text-indigo-600 border border-indigo-200 hover:bg-indigo-50 shadow-md hover:shadow-lg transition-all;
+  }
+  .card {
+    @apply bg-white rounded-xl border border-gray-100 p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1;
+  }
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-16 md:py-24;
+  }
+  .heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600;
+  }
+  .subheading {
+    @apply text-xl md:text-2xl font-semibold mb-4 text-indigo-700;
+  }
+  .text-muted {
+    @apply text-gray-600;
+  }
+  .nav-link {
+    @apply text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300;
+  }
+  .nav-link-active {
+    @apply text-indigo-600 font-semibold;
+  }
+  .hero-gradient {
+    @apply bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50;
+  }
+  .card-hover {
+    @apply hover:border-indigo-300 hover:shadow-2xl;
+  }
+  .tag {
+    @apply px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-700;
+  }
+  .badge {
+    @apply px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-primary {
+    @apply bg-indigo-100 text-indigo-700;
+  }
+  .badge-secondary {
+    @apply bg-gray-100 text-gray-700;
+  }
+}
+
+/* 自定义动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .heading {
+    @apply text-2xl md:text-3xl;
+  }
+  .subheading {
+    @apply text-lg md:text-xl;
+  }
+  .section {
+    @apply py-12 md:py-16;
+  }
+}
